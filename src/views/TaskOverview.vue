@@ -15,9 +15,9 @@ const stats = computed(() => {
   let unpacked = 0;
   let damaged = 0;
   boxes.forEach((b) => {
-    if (b.status === 'loaded' || b.status === 'arrived') loaded += 1;
-    if (b.status === 'unpacked' || b.status === 'damaged') unpacked += 1;
-    if (b.status === 'damaged' || b.status === 'missing') damaged += 1;
+    if (b.status === 'loaded') loaded += 1;
+    if (b.status === 'unpacked') unpacked += 1;
+    if (b.status === 'damaged') damaged += 1;
   });
   return { total: boxes.length, loaded, unpacked, damaged };
 });
