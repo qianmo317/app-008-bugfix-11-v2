@@ -124,8 +124,8 @@ export function roomProgress(task: MoveTask, room: string): { total: number; unp
   let damaged = 0;
   for (const b of boxes) {
     total += 1;
-    if (b.status === 'arrived' || b.status === 'unpacked') unpacked += 1;
-    if (b.status === 'damaged' || b.status === 'missing') damaged += 1;
+    if (b.status === 'unpacked') unpacked += 1;
+    if (b.status === 'damaged') damaged += 1;
   }
   return { total, unpacked, damaged };
 }

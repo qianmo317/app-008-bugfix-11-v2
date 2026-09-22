@@ -98,11 +98,9 @@ function searchManual() {
 
 async function setStatus(status: Box['status']) {
   if (!foundBox.value || !task.value) return;
-  const alias: Partial<Record<Box['status'], Box['status']>> = { unpacked: 'arrived' };
-  const next = alias[status] ?? status;
-  foundBox.value.status = next;
+  foundBox.value.status = status;
   foundBox.value.updatedAt = Date.now();
-  updateBox(task.value.id, foundBox.value);
+  await updateBox(task.value.id, foundBox.value);
 }
 
 function reset() {
